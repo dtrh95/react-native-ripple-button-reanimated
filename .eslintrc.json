@@ -1,0 +1,132 @@
+{
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
+    },
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [
+            0,
+            {
+                "extensions": [
+                    ".tsx, .jsx, .js"
+                ]
+            }
+        ],
+        "import/extensions": [
+            2,
+            {
+                "tsx": "never"
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            2,
+            {
+                "args": "none"
+            }
+        ],
+        "no-underscore-dangle": [
+            "error", {
+                "allow": [
+                    "__class__",
+                    "__version__",
+                    "__system__"
+                ]
+            }
+        ],
+        "import/prefer-default-export": "off",
+        "react/require-default-props": [
+            2,
+            {
+                "ignoreFunctionalComponents": true
+            }
+        ],
+        "react/prop-types": "off",
+        "func-names": [
+            "error",
+            "always",
+            {
+                "generators": "as-needed"
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 100,
+                "ignoreUrls": true,
+                "ignoreStrings": true,
+                "ignoreComments": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "error",
+                    "info"
+                ]
+            }
+        ],
+        "camelcase": ["off"],
+        "react/jsx-props-no-spreading": ["off"],
+        "no-nested-ternary": ["off"],
+        "import/no-unresolved": [2, {
+                "ignore": [
+                    "@env"
+                ]
+            }
+        ]
+    },
+    "globals": {
+        "__DEV__": true
+    },
+    "overrides": [
+        {
+            "files": [
+                "src/Redux/reducers/slices/**/*.ts"
+            ],
+            "rules": {
+                "no-param-reassign": [
+                    "error",
+                    {
+                        "props": false
+                    }
+                ]
+            }
+        }
+    ]
+}
