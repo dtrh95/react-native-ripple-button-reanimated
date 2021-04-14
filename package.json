@@ -16,17 +16,13 @@
     "react-native-reanimated": ">=2.0.0-rc.0"
   },
   "devDependencies": {
-    "@react-native-community/bob": "^0.17.1",
-    "react": "17.0.1",
-    "react-native": "0.64.0",
     "@babel/core": "^7.13.13",
     "@babel/runtime": "^7.13.10",
+    "@react-native-community/bob": "^0.17.1",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/react": "17.0.2",
     "@types/react-native": "0.63.50",
     "@typescript-eslint/eslint-plugin": "2.27.0",
-    "react-native-gesture-handler": "^1.10.3",
-    "react-native-reanimated": "^2.0.1",
     "babel-jest": "^26.6.3",
     "eslint": "7.3.1",
     "eslint-config-airbnb": "18.2.0",
@@ -36,29 +32,39 @@
     "eslint-plugin-react-hooks": "4.0.5",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.65.2",
+    "react": "17.0.1",
+    "react-native": "0.64.0",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "^2.0.1",
     "react-test-renderer": "17.0.1",
+    "semantic-release": "^15.13.3",
+    "semantic-release-cli": "^4.1.2",
     "typescript": "4.2.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.32.0",
-    "webpack-cli": "^4.6.0",
-    "semantic-release": "^15.13.3",
-    "semantic-release-cli": "^4.1.2"
+    "webpack-cli": "^4.6.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
+    ]
   },
   "description": "React Native Button with ripple effect. It works for android and ios.",
-  "main": "index.js",
+  "main": "lib/module/index.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/dtrh95/react-native-ripple-button-reanimated.git"
   },
-  "react-native": "lib/module/index.js",
+  "react-native": "src/index.ts",
   "module": "lib/module/index.js",
-  "types": "lib/typescript/index.d.ts",
+  "types": "lib/typescript/src/index.d.ts",
   "files": [
     "src",
-    "lib"
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
   ],
   "@react-native-community/bob": {
     "source": "src",
@@ -81,5 +87,9 @@
   "bugs": {
     "url": "https://github.com/dtrh95/react-native-ripple-button-reanimated/issues"
   },
-  "homepage": "https://github.com/dtrh95/react-native-ripple-button-reanimated#readme"
+  "homepage": "https://github.com/dtrh95/react-native-ripple-button-reanimated#readme",
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
 }
