@@ -50,7 +50,7 @@ function RippleButton({
     transform: [{
       scale: scale.value,
     }],
-  }), []);
+  }), [radius]);
 
   return (
     <TapGestureHandler
