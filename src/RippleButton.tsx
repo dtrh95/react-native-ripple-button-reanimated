@@ -17,8 +17,8 @@ type ValueOf<T> = T[keyof T];
 interface RippleButtonProps {
   children: React.ReactElement;
   color: string;
-  borderRadius: number;
-  onPress: () => void;
+  borderRadius?: number;
+  onPress?: () => void;
   rippleScale?: number,
   duration?: number,
   overflow?: boolean,
@@ -30,7 +30,7 @@ function RippleButton({
   children,
   color,
   borderRadius,
-  onPress,
+  onPress = () => {},
   rippleScale = 1,
   duration = 250,
   overflow = false,
