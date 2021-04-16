@@ -58,22 +58,25 @@ function RippleButton({
         state.value = event.nativeEvent.state;
         positionX.value = event.nativeEvent.x;
         positionY.value = event.nativeEvent.y;
+
+        scale.value = event.nativeEvent.state !== State.FAILED ? withTiming(
+          rippleScale,
+          { duration, easing: Easing.bezier(0, 0, 0.8, 0.4) },
+          (finised) => {
+            if (finised) {
+              isFinished.value = true;
+              scale.value = withTiming(0, { duration: 0 });
+            }
+            if (state.value === State.BEGAN && finised) {
+              scale.value = withTiming(1, { duration: 0 });
+            }
+          },
+        ) : 0;
+
         if (event.nativeEvent.state === State.BEGAN) {
           isFinished.value = false;
-          scale.value = withTiming(
-            rippleScale,
-            { duration, easing: Easing.bezier(0, 0, 0.8, 0.4) },
-            (finised) => {
-              if (finised) {
-                isFinished.value = true;
-                scale.value = withTiming(0, { duration: 0 });
-              }
-              if (state.value === State.BEGAN && finised) {
-                scale.value = withTiming(1, { duration: 0 });
-              }
-            },
-          );
         }
+
         if (event.nativeEvent.state === State.END) {
           if (isFinished.value) {
             scale.value = withTiming(0, { duration: 0 });
