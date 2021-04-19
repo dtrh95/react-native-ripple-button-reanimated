@@ -54,12 +54,14 @@ function RippleButton({
 
   return (
     <TapGestureHandler
+      maxDurationMs={9999999999}
       onHandlerStateChange={(event) => {
         state.value = event.nativeEvent.state;
         positionX.value = event.nativeEvent.x;
         positionY.value = event.nativeEvent.y;
 
         scale.value = event.nativeEvent.state !== State.FAILED ? withTiming(
+
           rippleScale,
           { duration, easing: Easing.bezier(0, 0, 0.8, 0.4) },
           (finised) => {
@@ -71,6 +73,7 @@ function RippleButton({
               scale.value = withTiming(1, { duration: 0 });
             }
           },
+
         ) : 0;
 
         if (event.nativeEvent.state === State.BEGAN) {
